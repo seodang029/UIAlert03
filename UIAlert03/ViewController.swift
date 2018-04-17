@@ -17,19 +17,23 @@ class ViewController: UIViewController {
 
     @IBAction func btn(_ sender: Any) {
     
-        let myAlert = UIAlertController(title: "알림", message: "설정된 시간이 되었습니다.", preferredStyle: .alert)
+        let myAlert = UIAlertController(title: "알림", message: "설정된 시간이 되었습니다.", preferredStyle: .actionSheet)
         
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: {(myAction: UIAlertAction) -> Void in
+        let okAction = UIAlertAction(title: "확인", style: .default) {
+            (myAction: UIAlertAction) -> Void in
             self.view.backgroundColor = UIColor.red
-            })
+            }
+        //후행 클로저(Trailing Closure)
         
-        let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: {(myAction: UIAlertAction) -> Void in
+        let cancelAction = UIAlertAction(title: "cancel", style: .cancel) {
+        (myAction: UIAlertAction) -> Void in
             self.view.backgroundColor = UIColor.white
-        })
+        }
         
-        let testAcotion = UIAlertAction(title: "Delete", style: .destructive, handler: {(myAction: UIAlertAction) -> Void in
+        let testAcotion = UIAlertAction(title: "Delete", style: .destructive) {
+            (myAction: UIAlertAction) -> Void in
             self.view.backgroundColor = UIColor.green
-        })
+        }
         
         myAlert.addAction(okAction)
         myAlert.addAction(cancelAction)
